@@ -12,7 +12,7 @@ import { ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/cornershop.png";
 import useStyles from "./style";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
 	const classes = useStyles();
 
 	return (
@@ -37,7 +37,7 @@ const Navbar = () => {
 							aria-label="Show cart items"
 							color="inherit"
 						>
-							<Badge badgeContent={2} color="secondary">
+							<Badge badgeContent={totalItems} color="secondary">
 								<ShoppingCart />
 							</Badge>
 						</IconButton>
