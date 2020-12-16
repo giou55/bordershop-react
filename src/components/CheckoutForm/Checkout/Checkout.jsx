@@ -14,7 +14,7 @@ import useStyles from "./styles";
 import AddressForm from "../AddressForm";
 import PaymentForm from "../PaymentForm";
 
-const steps = ["Shipping address", "Payment details"];
+const steps = ["Στοιχεία αποστολής", "Λεπτομέρειες πληρωμής"];
 
 const Checkout = () => {
 	const [activeStep, setActiveStep] = useState(0);

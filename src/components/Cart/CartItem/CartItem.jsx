@@ -53,7 +53,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 					color="secondary"
 					onClick={() => onRemoveFromCart(item.id)}
 				>
-					Remove
+					ΑΦΑΙΡΕΣΗ
 				</Button>
 			</CardActions>
 		</Card>

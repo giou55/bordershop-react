@@ -38,7 +38,7 @@ const Cart = ({
 			</Grid>
 			<div className={classes.cardDetails}>
 				<Typography variant="h4">
-					Subtotal: {cart.subtotal.formatted_with_symbol}
+					Σύνολο: {cart.subtotal.formatted_with_symbol}
 				</Typography>
 				<div>
 					<Button
@@ -49,7 +49,7 @@ const Cart = ({
 						color="secondary"
 						onClick={handleEmptyCart}
 					>
-						Empty Cart
+						ΑΔΕΙΑΣΜΑ ΚΑΛΑΘΙΟΥ
 					</Button>
 					<Button
 						component={Link}
@@ -73,7 +73,7 @@ const Cart = ({
 		<Container>
 			<div className={classes.toolbar} />
 			<Typography className={classes.title} variant="h4" gutterBottom>
-				Your Shopping Cart
+				Το καλάθι σας
 			</Typography>
 			{!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
 		</Container>
