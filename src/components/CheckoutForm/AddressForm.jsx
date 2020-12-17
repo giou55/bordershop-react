@@ -8,15 +8,50 @@ import {
 	Typography,
 } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 import { commerce } from "../../lib/commerce";
 
 import FormInput from "./CustomTextField";
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
+	const [shippingCountries, setShippingCountries] = useState([]);
+	const [shippingCountry, setShippingCountry] = useState("");
 	const [shippingOptions, setShippingOptions] = useState([]);
 	const [shippingOption, setShippingOption] = useState("");
 	const methods = useForm();
+
+	const fetchShippingCountries = async (checkoutTokenId) => {
+		const {
+			countries,
+		} = await commerce.services.localeListShippingCountries(
+			checkoutTokenId
+		);
+		setShippingCountries(countries);
+		setShippingCountry(Object.keys(countries)[0]);
+	};
+
+	const fetchShippingOptions = async (
+		checkoutTokenId,
+		country,
+		stateProvince = null
+	) => {
+		const options = await commerce.checkout.getShippingOptions(
+			checkoutTokenId,
+			{ country, region: stateProvince }
+		);
+		setShippingOptions(options);
+		setShippingOption(options[0].id);
+	};
+
+	useEffect(() => {
+		fetchShippingCountries(checkoutToken.id);
+	}, []);
+
+	useEffect(() => {
+		if (shippingCountry)
+			fetchShippingOptions(checkoutToken.id, shippingCountry);
+	}, [shippingCountry]);
 
 	return (
 		<>
@@ -24,18 +59,46 @@ const AddressForm = ({ checkoutToken }) => {
 				Στοιχεία αποστολής
 			</Typography>
 			<FormProvider {...methods}>
-				<form onSubmit="">
+				<form
+					onSubmit={methods.handleSubmit((data) =>
+						next({ ...data, shippingCountry, shippingOption })
+					)}
+				>
 					<Grid container spacing={3}>
-						<FormInput required name="firstName" label="Όνομα" />
-						<FormInput required name="lastName" label="Επίθετο" />
-						<FormInput required name="address1" label="Διεύθυνση" />
-						<FormInput required name="email" label="Email" />
-						<FormInput required name="phone" label="Τηλέφωνο" />
-						<FormInput required name="city" label="Πόλη" />
-						<FormInput required name="zip" label="Ταχ.κώδικας" />
+						<FormInput name="firstName" label="Όνομα" />
+						<FormInput name="lastName" label="Επίθετο" />
+						<FormInput name="address1" label="Διεύθυνση" />
+						<FormInput name="email" label="Email" />
+						<FormInput name="phone" label="Τηλέφωνο" />
+						<FormInput name="city" label="Πόλη" />
+						<FormInput name="zip" label="Ταχ.κώδικας" />
 
-						{/* <Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Options</InputLabel>
+						<Grid item xs={12} sm={6}>
+							<InputLabel>Χώρα</InputLabel>
+							<Select
+								value={shippingCountry}
+								fullWidth
+								onChange={(e) =>
+									setShippingCountry(e.target.value)
+								}
+							>
+								{Object.entries(shippingCountries)
+									.map(([code, name]) => ({
+										id: code,
+										label: name,
+									}))
+									.map((item) => (
+										<MenuItem key={item.id} value={item.id}>
+											{item.label === "Greece"
+												? "Ελλάδα"
+												: "Other"}
+										</MenuItem>
+									))}
+							</Select>
+						</Grid>
+
+						<Grid item xs={12} sm={6}>
+							<InputLabel>Έξοδα αποστολής</InputLabel>
 							<Select
 								value={shippingOption}
 								fullWidth
@@ -46,7 +109,7 @@ const AddressForm = ({ checkoutToken }) => {
 								{shippingOptions
 									.map((sO) => ({
 										id: sO.id,
-										label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
+										label: `${sO.price.formatted_with_symbol}`,
 									}))
 									.map((item) => (
 										<MenuItem key={item.id} value={item.id}>
@@ -54,8 +117,26 @@ const AddressForm = ({ checkoutToken }) => {
 										</MenuItem>
 									))}
 							</Select>
-						</Grid> */}
+						</Grid>
 					</Grid>
+					<br />
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "space-between",
+						}}
+					>
+						<Button component={Link} to="/cart" variant="outlined">
+							ΠΙΣΩ ΣΤΟ ΚΑΛΑΘΙ
+						</Button>
+						<Button
+							type="submit"
+							variant="contained"
+							color="primary"
+						>
+							ΕΠΟΜΕΝΟ
+						</Button>
+					</div>
 				</form>
 			</FormProvider>
 		</>
