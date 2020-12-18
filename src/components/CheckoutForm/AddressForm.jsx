@@ -7,11 +7,10 @@ import {
 	Grid,
 	Typography,
 } from "@material-ui/core";
-import { useForm, FormProvider } from "react-hook-form";
+import { useForm, FormProvider, Controller } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import { commerce } from "../../lib/commerce";
-
 import FormInput from "./CustomTextField";
 
 const AddressForm = ({ checkoutToken, next }) => {
@@ -19,7 +18,9 @@ const AddressForm = ({ checkoutToken, next }) => {
 	const [shippingCountry, setShippingCountry] = useState("");
 	const [shippingOptions, setShippingOptions] = useState([]);
 	const [shippingOption, setShippingOption] = useState("");
+
 	const methods = useForm();
+	const { control } = methods;
 
 	const fetchShippingCountries = async (checkoutTokenId) => {
 		const {
@@ -27,6 +28,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 		} = await commerce.services.localeListShippingCountries(
 			checkoutTokenId
 		);
+
 		setShippingCountries(countries);
 		setShippingCountry(Object.keys(countries)[0]);
 	};
@@ -40,6 +42,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 			checkoutTokenId,
 			{ country, region: stateProvince }
 		);
+
 		setShippingOptions(options);
 		setShippingOption(options[0].id);
 	};
@@ -56,25 +59,39 @@ const AddressForm = ({ checkoutToken, next }) => {
 	return (
 		<>
 			<Typography variant="h6" gutterBottom>
-				Στοιχεία αποστολής
+				Shipping address
 			</Typography>
 			<FormProvider {...methods}>
 				<form
 					onSubmit={methods.handleSubmit((data) =>
-						next({ ...data, shippingCountry, shippingOption })
+						next({
+							...data,
+							shippingCountry,
+							shippingOption,
+						})
 					)}
 				>
 					<Grid container spacing={3}>
-						<FormInput name="firstName" label="Όνομα" />
-						<FormInput name="lastName" label="Επίθετο" />
-						<FormInput name="address1" label="Διεύθυνση" />
+						<FormInput name="firstName" label="First name" />
+						<FormInput name="lastName" label="Last name" />
+						<FormInput name="address1" label="Address line 1" />
 						<FormInput name="email" label="Email" />
-						<FormInput name="phone" label="Τηλέφωνο" />
-						<FormInput name="city" label="Πόλη" />
-						<FormInput name="zip" label="Ταχ.κώδικας" />
+						<FormInput name="city" label="City" />
+						<FormInput name="zip" label="Zip / Postal code" />
+
+						{/* <Grid item xs={12} sm={6}>
+							<InputLabel>Shipping Country</InputLabel>
+							<Select
+								fullWidth
+								value={shippingCountry}
+								onChange={handleChange}
+							>
+								<MenuItem value="Greece">Greece</MenuItem>
+							</Select>
+						</Grid> */}
 
 						<Grid item xs={12} sm={6}>
-							<InputLabel>Χώρα</InputLabel>
+							<InputLabel>Shipping Country</InputLabel>
 							<Select
 								value={shippingCountry}
 								fullWidth
@@ -89,16 +106,14 @@ const AddressForm = ({ checkoutToken, next }) => {
 									}))
 									.map((item) => (
 										<MenuItem key={item.id} value={item.id}>
-											{item.label === "Greece"
-												? "Ελλάδα"
-												: "Other"}
+											{item.label}
 										</MenuItem>
 									))}
 							</Select>
 						</Grid>
 
 						<Grid item xs={12} sm={6}>
-							<InputLabel>Έξοδα αποστολής</InputLabel>
+							<InputLabel>Shipping Options</InputLabel>
 							<Select
 								value={shippingOption}
 								fullWidth
@@ -126,15 +141,15 @@ const AddressForm = ({ checkoutToken, next }) => {
 							justifyContent: "space-between",
 						}}
 					>
-						<Button component={Link} to="/cart" variant="outlined">
-							ΠΙΣΩ ΣΤΟ ΚΑΛΑΘΙ
+						<Button component={Link} variant="outlined" to="/cart">
+							Back to Cart
 						</Button>
 						<Button
 							type="submit"
 							variant="contained"
 							color="primary"
 						>
-							ΕΠΟΜΕΝΟ
+							Next
 						</Button>
 					</div>
 				</form>
