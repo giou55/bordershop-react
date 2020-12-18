@@ -79,17 +79,6 @@ const AddressForm = ({ checkoutToken, next }) => {
 						<FormInput name="city" label="City" />
 						<FormInput name="zip" label="Zip / Postal code" />
 
-						{/* <Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Country</InputLabel>
-							<Select
-								fullWidth
-								value={shippingCountry}
-								onChange={handleChange}
-							>
-								<MenuItem value="Greece">Greece</MenuItem>
-							</Select>
-						</Grid> */}
-
 						<Grid item xs={12} sm={6}>
 							<InputLabel>Shipping Country</InputLabel>
 							<Select
