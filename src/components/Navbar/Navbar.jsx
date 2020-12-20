@@ -7,6 +7,7 @@ import {
 	Menu,
 	Typography,
 	Container,
+	Box,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
@@ -20,26 +21,36 @@ const Navbar = ({ totalItems }) => {
 
 	return (
 		<>
-				<AppBar
-					position="fixed"
-					className={classes.appbar}
-					color="inherit"
-				>
-					<Toolbar>
-						<Typography
-							component={Link}
-							to="/"
-							variant="h6"
-							className="classes.title"
-							color="inherit"
-						>
+			<AppBar position="static" className={classes.topbar}>
+				<Container maxWidth="lg">
+					<Typography
+						variant="body2"
+						className="classes.topbar"
+						color="inherit"
+					>
+						FREE SHIPPING FOR ORDERS ABOVE € 40,- ORDERED BEFORE
+						17:00H, SHIPPED TODAY +31 (0) 77 79 20 000
+					</Typography>
+				</Container>
+			</AppBar>
+
+			<AppBar
+				position="sticky"
+				className={classes.appbar}
+				color="inherit"
+			>
+				<Container maxWidth="lg">
+					<Toolbar disableGutters={true}>
+						<Box component={Link} to="/">
 							<img
+								href="/"
 								src={logo}
 								alt="Cornershop"
 								height="60px"
 								className="classes.image"
 							/>
-						</Typography>
+						</Box>
+
 						<div className={classes.grow} />
 						{location.pathname === "/" && (
 							<div className={classes.button}>
@@ -59,7 +70,8 @@ const Navbar = ({ totalItems }) => {
 							</div>
 						)}
 					</Toolbar>
-				</AppBar>
+				</Container>
+			</AppBar>
 		</>
 	);
 };
