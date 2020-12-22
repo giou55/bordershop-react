@@ -11,8 +11,9 @@ import {
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-import logo from "../../assets/logo.png";
+import "../../assets/css/logo.css";
 import useStyles from "./styles";
 
 const Navbar = ({ totalItems }) => {
@@ -40,18 +41,21 @@ const Navbar = ({ totalItems }) => {
 				color="inherit"
 			>
 				<Container maxWidth="lg">
-					<Toolbar disableGutters={true}>
-						<Box component={Link} to="/">
-							<img
-								href="/"
-								src={logo}
-								alt="Cornershop"
-								height="60px"
-								className="classes.image"
-							/>
+					<Toolbar
+						disableGutters={true}
+						style={{ height: "80px" }}
+					>
+						<Box
+							component={Link}
+							to="/"
+							style={{ textDecoration: "none" }}
+							className="logo"
+						>
+							corner<span className="logo-span">shop</span>
 						</Box>
 
 						<div className={classes.grow} />
+
 						{location.pathname === "/" && (
 							<div className={classes.button}>
 								<IconButton

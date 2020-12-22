@@ -4,8 +4,8 @@ const drawerWidth = 0;
 
 export default makeStyles(() => ({
 	topbar: {
-		backgroundColor: "#4993d4",
-		padding: "6px"
+		backgroundColor: "#0077ab",
+		padding: "6px",
 	},
 	appbar: {
 		boxShadow: "none",
