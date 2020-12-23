@@ -12,14 +12,16 @@ export default makeStyles((theme) => ({
 		backgroundColor: "yellow",
 	},
 	root: {
-		margin: "1px",
-		padding: "1px",
+		margin: "0",
+		padding: "0",
+		fontSize: "20px",
+		backgroundColor: "green",
 	},
 	media: {
 		height: "450px",
 	},
 	ListItem: {
-			margin: 0,
-			padding: 0,
-    }
+		margin: 0,
+		padding: 0,
+	},
 }));

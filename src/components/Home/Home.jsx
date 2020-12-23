@@ -1,15 +1,14 @@
 import {
 	Grid,
 	Container,
-	List,
-	ListItem,
-	ListItemText,
 } from "@material-ui/core";
+
+import Categories from "../Categories/Categories";
 
 import img from "../../assets/images/home.jpg";
 import useStyles from "./styles";
 
-const Home = () => {
+const Home = ({categories}) => {
 	const classes = useStyles();
 
 	return (
@@ -20,58 +19,21 @@ const Home = () => {
 					<Grid
 						item
 						xs={12}
-						sm={4}
-						md={3}
-						lg={3}
+						sm={3}
+						md={2}
+						lg={2}
 						xl={2}
 						className={classes.categories}
 					>
-						<List>
-							<ListItem>
-								<ListItemText
-									className={classes.root}
-									primary="Βιβλία"
-								/>
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Περιοδικά" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Αυτοκινητάκια" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Σειρές DVD" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Ταινίες DVD" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="CD Μουσικής" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Παιχνίδια" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Κόμικς" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Gadgets" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Pins" />
-							</ListItem>
-							<ListItem>
-								<ListItemText primary="Φιγούρες" />
-							</ListItem>
-						</List>
+						<Categories categories={categories} />
 					</Grid>
 
 					<Grid
 						item
 						xs={12}
-						sm={8}
-						md={9}
-						lg={9}
+						sm={9}
+						md={10}
+						lg={10}
 						xl={10}
 						className={classes.media}
 					>
