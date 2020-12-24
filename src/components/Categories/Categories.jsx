@@ -1,10 +1,5 @@
-import {
-	List,
-	ListItem,
-    ListItemText,
-} from "@material-ui/core";
+import { List, ListItem, ListItemText } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
 
 const Categories = ({ categories }) => {
 	return (
@@ -15,7 +10,7 @@ const Categories = ({ categories }) => {
 					.map((category) => (
 						<ListItem
 							component={Link}
-							to="/cart"
+							to={category.slug}
 							key={category.name}
 							style={{
 								padding: "3px 15px 3px 0",

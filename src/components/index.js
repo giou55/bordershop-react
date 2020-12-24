@@ -1,6 +1,6 @@
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as Home } from "./Home/Home";
 export { default as Products } from "./Products/Products";
-export { default as Category } from "./Category/Category";
+export { default as CategoryProducts } from "./CategoryProducts/CategoryProducts";
 export { default as Cart } from "./Cart/Cart";
 export { default as Checkout } from "./CheckoutForm/Checkout/Checkout";
