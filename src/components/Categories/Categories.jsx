@@ -13,7 +13,7 @@ const Categories = ({ categories }) => {
 							to={category.slug}
 							key={category.name}
 							style={{
-								padding: "3px 15px 3px 0",
+								padding: "2px 15px 2px 0",
 							}}
 						>
 							<ListItemText primary={category.name} />

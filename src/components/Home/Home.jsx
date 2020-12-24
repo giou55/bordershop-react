@@ -1,6 +1,7 @@
 import {
 	Grid,
 	Container,
+	Typography,
 } from "@material-ui/core";
 
 import Categories from "../Categories/Categories";
@@ -12,7 +13,9 @@ const Home = ({categories}) => {
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth="lg">
+		<Container
+			maxWidth="lg"
+		>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<Grid container justify="space-between" spacing={1}>
@@ -25,6 +28,14 @@ const Home = ({categories}) => {
 						xl={2}
 						className={classes.categories}
 					>
+						<Typography
+							variant="h6"
+							style={{
+								backgroundColor: "#eee",
+							}}
+						>
+							Κατηγορίες
+						</Typography>
 						<Categories categories={categories} />
 					</Grid>
 

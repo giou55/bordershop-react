@@ -6,10 +6,11 @@ export default makeStyles((theme) => ({
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.default,
 		padding: theme.spacing(0),
+		backgroundColor: "#fff"
 	},
 	categories: {
-		height: "450px",
-		backgroundColor: "yellow",
+		// height: "450px",
+		// backgroundColor: "yellow",
 	},
 	root: {
 		margin: "0",
