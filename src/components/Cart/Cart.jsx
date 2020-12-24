@@ -13,21 +13,22 @@ const Cart = ({
 	const classes = useStyles();
 
 	const EmptyCart = () => (
-		<Typography variant="subtitle1">
-			You have no items in your shopping cart,
-			<Link to="/" className={classes.link}>
-				{" "}
-				start adding some
-			</Link>
-			!
-		</Typography>
+		<Typography variant="subtitle1">Το καλάθι σας είναι άδειο.</Typography>
 	);
 
 	const FilledCart = () => (
 		<>
 			<Grid container spacing={3}>
 				{cart.line_items.map((item) => (
-					<Grid item xs={12} sm={4} key={item.id}>
+					<Grid
+						item
+						xs={12}
+						sm={6}
+						md={4}
+						lg={4}
+						xl={3}
+						key={item.id}
+					>
 						<CartItem
 							item={item}
 							onUpdateCartQty={handleUpdateCartQty}
@@ -37,7 +38,7 @@ const Cart = ({
 				))}
 			</Grid>
 			<div className={classes.cardDetails}>
-				<Typography variant="h4">
+				<Typography variant="h5">
 					Σύνολο: {cart.subtotal.formatted_with_symbol}
 				</Typography>
 				<div>
@@ -72,9 +73,10 @@ const Cart = ({
 	return (
 		<Container>
 			<div className={classes.toolbar} />
-			<Typography className={classes.title} variant="h4" gutterBottom>
+			<Typography variant="h5" gutterBottom>
 				Το καλάθι σας
 			</Typography>
+			<div className={classes.toolbar} />
 			{!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
 		</Container>
 	);

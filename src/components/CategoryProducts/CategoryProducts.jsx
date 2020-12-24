@@ -5,7 +5,7 @@ import { commerce } from "../../lib/commerce";
 
 import { Grid, Container } from "@material-ui/core";
 
-import Product from "../Products/Product/Product";
+import Product from "../Product/Product";
 import useStyles from "./styles";
 
 const CategoryProducts = ({ onAddToCart }) => {

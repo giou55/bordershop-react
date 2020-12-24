@@ -4,10 +4,11 @@ import {
 	CardContent,
 	CardActions,
 	Typography,
-	IconButton,
+	Button,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-import { AddShoppingCart } from "@material-ui/icons";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 import useStyles from "./styles";
 
@@ -17,31 +18,41 @@ const Product = ({ product, onAddToCart }) => {
 	return (
 		<Card className={classes.root}>
 			<CardMedia
+				component={Link}
+				to={`/product/${product.id}`}
 				className={classes.media}
 				image={product.media.source}
 				title={product.name}
 			/>
 			<CardContent>
-				<div className={classes.cardContent}>
-					<Typography variant="h6" gutterBottom>
-						{product.name}
-					</Typography>
-					<Typography variant="h5">
-						{product.price.formatted_with_symbol}
-					</Typography>
-				</div>
-				<Typography
+				<Typography variant="subtitle1" gutterBottom>
+					{product.name}
+				</Typography>
+				<Typography variant="h5">
+					{product.price.formatted_with_symbol}
+				</Typography>
+				{/* <Typography
 					dangerouslySetInnerHTML={{ __html: product.description }}
 					variant="body2"
 					color="textSecondary"
-				/>
+				/> */}
 				<CardActions disableSpacing className={classes.cardActions}>
-					<IconButton
+					<Button
+						aria-label="Add to Cart"
+						onClick={() => onAddToCart(product.id, 1)}
+						variant="contained"
+						color="secondary"
+						className={classes.button}
+						startIcon={<AddShoppingCartIcon />}
+					>
+						ΣΤΟ ΚΑΛΑΘΙ
+					</Button>
+					{/* <IconButton
 						aria-label="Add to Cart"
 						onClick={() => onAddToCart(product.id, 1)}
 					>
 						<AddShoppingCart />
-					</IconButton>
+					</IconButton> */}
 				</CardActions>
 			</CardContent>
 		</Card>

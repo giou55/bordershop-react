@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { commerce } from "./lib/commerce";
 import {
 	Products,
+	ProductDetails,
 	Navbar,
 	Cart,
 	Checkout,
 	Home,
 	CategoryProducts,
+	Footer
 } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -84,10 +86,19 @@ const App = () => {
 				<Navbar totalItems={cart.total_items} />
 				<Switch>
 					<Route exact path="/">
-						<Home categories={categories} />
+						<Home
+							categories={categories}
+							onAddToCart={handleAddToCart}
+						/>
 					</Route>
 					<Route exact path="/products">
 						<Products
+							products={products}
+							onAddToCart={handleAddToCart}
+						/>
+					</Route>
+					<Route exact path="/product/:id">
+						<ProductDetails
 							products={products}
 							onAddToCart={handleAddToCart}
 						/>
@@ -112,6 +123,7 @@ const App = () => {
 						<CategoryProducts onAddToCart={handleAddToCart} />
 					</Route>
 				</Switch>
+				<Footer />
 			</div>
 		</Router>
 	);

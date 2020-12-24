@@ -1,21 +1,16 @@
-import {
-	Grid,
-	Container,
-	Typography,
-} from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 
 import Categories from "../Categories/Categories";
+import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 
 import img from "../../assets/images/home.jpg";
 import useStyles from "./styles";
 
-const Home = ({categories}) => {
+const Home = ({ categories, onAddToCart }) => {
 	const classes = useStyles();
 
 	return (
-		<Container
-			maxWidth="lg"
-		>
+		<Container maxWidth="lg">
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<Grid container justify="space-between" spacing={1}>
@@ -58,6 +53,7 @@ const Home = ({categories}) => {
 					</Grid>
 				</Grid>
 			</main>
+			<FeaturedProducts onAddToCart={onAddToCart} />
 		</Container>
 	);
 };

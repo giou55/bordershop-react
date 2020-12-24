@@ -20,7 +20,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 				className={classes.media}
 			/>
 			<CardContent className={classes.cardContent}>
-				<Typography variant="h6">{item.name}</Typography>
+				<Typography variant="body1">{item.name}</Typography>
 				<Typography variant="h5">
 					{item.line_total.formatted_with_symbol}
 				</Typography>
