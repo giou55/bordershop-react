@@ -3,12 +3,12 @@ import { commerce } from "./lib/commerce";
 import {
 	Products,
 	ProductDetails,
-	Navbar,
+	Topbar,
 	Cart,
 	Checkout,
 	Home,
 	CategoryProducts,
-	Footer
+	Footer,
 } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -23,6 +23,7 @@ const App = () => {
 	const fetchProducts = async () => {
 		const { data } = await commerce.products.list();
 		setProducts(data);
+		console.log(data);
 	};
 
 	const fetchCategories = async () => {
@@ -83,7 +84,7 @@ const App = () => {
 	return (
 		<Router>
 			<div>
-				<Navbar totalItems={cart.total_items} />
+				<Topbar totalItems={cart.total_items} />
 				<Switch>
 					<Route exact path="/">
 						<Home
@@ -100,6 +101,7 @@ const App = () => {
 					<Route exact path="/product/:id">
 						<ProductDetails
 							products={products}
+							categories={categories}
 							onAddToCart={handleAddToCart}
 						/>
 					</Route>

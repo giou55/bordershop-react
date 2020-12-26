@@ -1,32 +1,58 @@
-import { useState, useEffect } from "react";
-import { Container } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
+
+import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import { useParams } from "react-router-dom";
 
-import { commerce } from "../../lib/commerce";
+import useStyles from "./styles";
 
-const ProductDetails = ({ onAddToCart, products }) => {
-	const [product, setProduct] = useState({});
-
+const ProductDetails = ({ categories, onAddToCart, products }) => {
 	let { id } = useParams();
 
-	// const fetchProduct = async (productId) => {
-	// 	const { data } = await commerce.products.list();
-	// 	const { data } = await commerce.products.retrieve(productId);
-	// 	console.log(data);
-	// 	setProduct(data);
-	// };
-
-	// useEffect(() => {
-	// 	fetchProduct(id);
-	// }, []);
+	const classes = useStyles();
 
 	return (
 		<Container maxWidth="lg">
-			{products
-				.filter((product) => product.id === id)
-				.map((product) => (
-					<div key={product.id}>{product.name}</div>
-				))}
+			<main className={classes.content}>
+				<div className={classes.toolbar} />
+				<Grid container justify="space-between" spacing={4}>
+					<Grid
+						item
+						xs={12}
+						sm={3}
+						md={2}
+						lg={2}
+						xl={2}
+						className={classes.categories}
+					>
+						<CategoriesMenu categories={categories} />
+					</Grid>
+
+					<Grid
+						item
+						xs={12}
+						sm={9}
+						md={10}
+						lg={10}
+						xl={10}
+						className={classes.media}
+					>
+						{products
+							.filter((product) => product.id === id)
+							.map((product) => (
+								<div key={product.id}>
+									<Typography variant="h6">{product.name}</Typography>
+									<Typography variant="body2">{product.description}</Typography>
+									<div>
+										<img
+											src={product.media.source}
+											alt=""
+										/>
+									</div>
+								</div>
+							))}
+					</Grid>
+				</Grid>
+			</main>
 		</Container>
 	);
 };

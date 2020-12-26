@@ -8,10 +8,6 @@ export default makeStyles((theme) => ({
 		padding: theme.spacing(0),
 		backgroundColor: "#fff"
 	},
-	categories: {
-		// height: "450px",
-		// backgroundColor: "yellow",
-	},
 	media: {
 		height: "450px",
 	}

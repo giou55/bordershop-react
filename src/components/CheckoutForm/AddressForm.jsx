@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { commerce } from "../../lib/commerce";
 import FormInput from "./CustomTextField";
 
-const AddressForm = ({ checkoutToken, next }) => {
+const AddressForm = ({ cart, checkoutToken, next }) => {
 	const [shippingCountries, setShippingCountries] = useState([]);
 	const [shippingCountry, setShippingCountry] = useState("");
 	const [shippingOptions, setShippingOptions] = useState([]);
@@ -59,7 +59,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 	return (
 		<>
 			<Typography variant="h6" gutterBottom>
-				Shipping address
+				Στοιχεία αποστολής
 			</Typography>
 			<FormProvider {...methods}>
 				<form
@@ -72,15 +72,15 @@ const AddressForm = ({ checkoutToken, next }) => {
 					)}
 				>
 					<Grid container spacing={3}>
-						<FormInput name="firstName" label="First name" />
-						<FormInput name="lastName" label="Last name" />
-						<FormInput name="address1" label="Address line 1" />
+						<FormInput name="firstName" label="Όνομα" />
+						<FormInput name="lastName" label="Επίθετο" />
+						<FormInput name="address1" label="Διεύθυνση" />
 						<FormInput name="email" label="Email" />
-						<FormInput name="city" label="City" />
-						<FormInput name="zip" label="Zip / Postal code" />
+						<FormInput name="city" label="Πόλη" />
+						<FormInput name="zip" label="Ταχ. Κώδικας" />
 
 						<Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Country</InputLabel>
+							<InputLabel>Χώρα</InputLabel>
 							<Select
 								value={shippingCountry}
 								fullWidth
@@ -95,14 +95,16 @@ const AddressForm = ({ checkoutToken, next }) => {
 									}))
 									.map((item) => (
 										<MenuItem key={item.id} value={item.id}>
-											{item.label}
+											{item.label === "Greece"
+												? "Ελλάδα"
+												: item.label}
 										</MenuItem>
 									))}
 							</Select>
 						</Grid>
 
 						<Grid item xs={12} sm={6}>
-							<InputLabel>Shipping Options</InputLabel>
+							<InputLabel>Έξοδα αποστολής</InputLabel>
 							<Select
 								value={shippingOption}
 								fullWidth
@@ -114,10 +116,17 @@ const AddressForm = ({ checkoutToken, next }) => {
 									.map((sO) => ({
 										id: sO.id,
 										label: `${sO.price.formatted_with_symbol}`,
+										raw: sO.price.raw,
 									}))
 									.map((item) => (
-										<MenuItem key={item.id} value={item.id}>
-											{item.label}
+										<MenuItem
+											key={item.id}
+											value={item.id}
+											raw={item.raw}
+										>
+											{cart.subtotal.raw > 80
+												? "0.00"
+												: item.label}
 										</MenuItem>
 									))}
 							</Select>
@@ -131,14 +140,14 @@ const AddressForm = ({ checkoutToken, next }) => {
 						}}
 					>
 						<Button component={Link} variant="outlined" to="/cart">
-							Back to Cart
+							ΠΙΣΩ ΣΤΟ ΚΑΛΑΘΙ
 						</Button>
 						<Button
 							type="submit"
 							variant="contained"
 							color="primary"
 						>
-							Next
+							ΕΠΟΜΕΝΟ
 						</Button>
 					</div>
 				</form>

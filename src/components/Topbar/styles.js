@@ -5,11 +5,16 @@ const drawerWidth = 0;
 export default makeStyles(() => ({
 	topbar: {
 		backgroundColor: "#0077ab",
+		color: "#fff",
 		padding: "6px",
 	},
 	appbar: {
 		boxShadow: "none",
 		borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+	},
+	icon: {
+		height: "18px",
+		width: "auto",
 	},
 	title: {
 		flexGrow: 1,

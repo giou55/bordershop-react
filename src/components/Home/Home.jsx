@@ -1,6 +1,6 @@
-import { Grid, Container, Typography } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 
-import Categories from "../Categories/Categories";
+import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 
 import img from "../../assets/images/home.jpg";
@@ -17,21 +17,14 @@ const Home = ({ categories, onAddToCart }) => {
 					<Grid
 						item
 						xs={12}
+
 						sm={3}
 						md={2}
 						lg={2}
 						xl={2}
 						className={classes.categories}
 					>
-						<Typography
-							variant="h6"
-							style={{
-								backgroundColor: "#eee",
-							}}
-						>
-							Κατηγορίες
-						</Typography>
-						<Categories categories={categories} />
+						<CategoriesMenu categories={categories} />
 					</Grid>
 
 					<Grid

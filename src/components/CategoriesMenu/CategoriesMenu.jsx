@@ -1,9 +1,18 @@
-import { List, ListItem, ListItemText } from "@material-ui/core";
+import { List, ListItem, ListItemText, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-const Categories = ({ categories }) => {
+const CategoriesMenu = ({ categories }) => {
 	return (
 		<div>
+			<Typography
+				variant="h6"
+				style={{
+					backgroundColor: "#eee",
+					padding: "4px 8px"
+				}}
+			>
+				Κατηγορίες
+			</Typography>
 			<List>
 				{categories
 					.filter((category) => category.name !== "featured")
@@ -13,7 +22,8 @@ const Categories = ({ categories }) => {
 							to={category.slug}
 							key={category.name}
 							style={{
-								padding: "0 15px 0 0",
+								padding: "0 10px 0 8px",
+								color: "#333"
 							}}
 						>
 							<ListItemText primary={category.name} />
@@ -24,4 +34,4 @@ const Categories = ({ categories }) => {
 	);
 };
 
-export default Categories;
+export default CategoriesMenu;

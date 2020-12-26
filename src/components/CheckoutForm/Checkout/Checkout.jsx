@@ -124,6 +124,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 	const Form = () =>
 		activeStep === 0 ? (
 			<AddressForm
+			    cart={cart}
 				checkoutToken={checkoutToken}
 				nextStep={nextStep}
 				setShippingData={setShippingData}
