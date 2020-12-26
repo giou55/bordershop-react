@@ -8,7 +8,7 @@ const CategoriesMenu = ({ categories }) => {
 				variant="h6"
 				style={{
 					backgroundColor: "#eee",
-					padding: "4px 8px"
+					padding: "4px 8px",
 				}}
 			>
 				Κατηγορίες
@@ -19,11 +19,11 @@ const CategoriesMenu = ({ categories }) => {
 					.map((category) => (
 						<ListItem
 							component={Link}
-							to={category.slug}
+							to={`/${category.slug}`}
 							key={category.name}
 							style={{
 								padding: "0 10px 0 8px",
-								color: "#333"
+								color: "#333",
 							}}
 						>
 							<ListItemText primary={category.name} />

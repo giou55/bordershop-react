@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import useStyles from "./styles";
 
 const ProductDetails = ({ categories, onAddToCart, products }) => {
-	let { id } = useParams();
+	let { sku } = useParams();
 
 	const classes = useStyles();
 
@@ -37,11 +37,15 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 						className={classes.media}
 					>
 						{products
-							.filter((product) => product.id === id)
+							.filter((product) => product.sku == sku)
 							.map((product) => (
 								<div key={product.id}>
-									<Typography variant="h6">{product.name}</Typography>
-									<Typography variant="body2">{product.description}</Typography>
+									<Typography variant="h6">
+										{product.name}
+									</Typography>
+									<Typography variant="body2">
+										{product.description}
+									</Typography>
 									<div>
 										<img
 											src={product.media.source}

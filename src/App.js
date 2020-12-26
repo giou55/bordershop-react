@@ -21,7 +21,7 @@ const App = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 
 	const fetchProducts = async () => {
-		const { data } = await commerce.products.list();
+		const { data } = await commerce.products.list({limit: "100"});
 		setProducts(data);
 		console.log(data);
 	};
@@ -98,7 +98,7 @@ const App = () => {
 							onAddToCart={handleAddToCart}
 						/>
 					</Route>
-					<Route exact path="/product/:id">
+					<Route exact path="/product/:sku">
 						<ProductDetails
 							products={products}
 							categories={categories}

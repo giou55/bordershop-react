@@ -19,7 +19,7 @@ const Product = ({ product, onAddToCart }) => {
 		<Card className={classes.root}>
 			<CardMedia
 				component={Link}
-				to={`/product/${product.id}`}
+				to={`/product/${product.sku}`}
 				className={classes.media}
 				image={product.media.source}
 				title={product.name}
