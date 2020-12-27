@@ -6,7 +6,8 @@ export default makeStyles((theme) => ({
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.default,
 		padding: theme.spacing(0),
-		backgroundColor: "#fff"
+		backgroundColor: "#fff",
+		marginBottom: "40px"
 	},
 	media: {
 		height: "450px",

@@ -47,12 +47,6 @@ const Product = ({ product, onAddToCart }) => {
 					>
 						ΣΤΟ ΚΑΛΑΘΙ
 					</Button>
-					{/* <IconButton
-						aria-label="Add to Cart"
-						onClick={() => onAddToCart(product.id, 1)}
-					>
-						<AddShoppingCart />
-					</IconButton> */}
 				</CardActions>
 			</CardContent>
 		</Card>

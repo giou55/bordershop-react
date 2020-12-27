@@ -122,7 +122,10 @@ const App = () => {
 						/>
 					</Route>
 					<Route path="/:category">
-						<CategoryProducts onAddToCart={handleAddToCart} />
+						<CategoryProducts
+							categories={categories}
+							onAddToCart={handleAddToCart}
+						/>
 					</Route>
 				</Switch>
 				<Footer />

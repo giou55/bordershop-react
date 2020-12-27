@@ -69,8 +69,8 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 			<>
 				<div>
 					<Typography variant="h5">
-						Thank you for your purchase, {order.customer.firstname}{" "}
-						{order.customer.lastname}!
+						Ευχαριστούμε για την αγορά σας,{" "}
+						{order.customer.firstname} {order.customer.lastname}!
 					</Typography>
 					<Divider className={classes.divider} />
 					<Typography variant="subtitle2">
@@ -91,7 +91,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 			<>
 				<div>
 					<Typography variant="h5">
-						Thank you for your purchase!
+						Ευχαριστούμε για την αγορά σας!
 					</Typography>
 					<Divider className={classes.divider} />
 				</div>
@@ -102,7 +102,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 					type="button"
 					to="/"
 				>
-					Back to home
+					ΠΙΣΩ ΣΤΗΝ ΑΡΧΙΚΗ
 				</Button>
 			</>
 		) : (
@@ -116,7 +116,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 			<Typography variant="h5">Error: {error}</Typography>
 			<br />
 			<Button component={Link} variant="outlined" type="button" to="/">
-				Back to home
+				ΠΙΣΩ ΣΤΗΝ ΑΡΧΙΚΗ
 			</Button>
 		</>;
 	}
@@ -124,7 +124,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
 	const Form = () =>
 		activeStep === 0 ? (
 			<AddressForm
-			    cart={cart}
+				cart={cart}
 				checkoutToken={checkoutToken}
 				nextStep={nextStep}
 				setShippingData={setShippingData}

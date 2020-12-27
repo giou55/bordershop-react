@@ -25,8 +25,7 @@ const FeaturedProducts = ({ onAddToCart }) => {
 	return (
 		products && (
 			<div>
-				<Typography variant="h5">FEATURED</Typography>
-				<div className={classes.toolbar} />
+				<Typography variant="h5" gutterBottom>FEATURED</Typography>
 				<Grid container justify="center" spacing={4}>
 					{products.map((product) => (
 						<Grid
