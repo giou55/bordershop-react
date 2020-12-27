@@ -113,10 +113,9 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 										{product.related_products.map(
 											(product) => (
 												<div key={product.id}>
-													<Grid
-														item
-													>
+													<Grid item>
 														<Card
+															variant="outlined"
 															className={
 																classes.root
 															}
