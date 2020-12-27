@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { commerce } from "../../lib/commerce";
 
-import { Grid, Container } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 
 import Product from "../Product/Product";
 import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
@@ -33,14 +33,7 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 				<main className={classes.content}>
 					<div className={classes.toolbar} />
 					<Grid container justify="space-between" spacing={4}>
-						<Grid
-							item
-							xs={12}
-							sm={3}
-							md={2}
-							lg={2}
-							xl={2}
-						>
+						<Grid item xs={12} sm={3} md={2} lg={2} xl={2}>
 							<CategoriesMenu categories={categories} />
 						</Grid>
 

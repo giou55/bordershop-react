@@ -1,9 +1,16 @@
-import { Grid, Container, Typography, Button } from "@material-ui/core";
+import {
+	Grid,
+	Container,
+	Typography,
+	Card,
+	CardMedia,
+	CardContent,
+	Button,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import { useParams } from "react-router-dom";
-
-import Product from "../Product/Product";
 
 import useStyles from "./styles";
 
@@ -17,14 +24,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<Grid container justify="space-between" spacing={4}>
-					<Grid
-						item
-						xs={12}
-						sm={3}
-						md={2}
-						lg={2}
-						xl={2}
-					>
+					<Grid item xs={12} sm={3} md={2} lg={2} xl={2}>
 						<CategoriesMenu categories={categories} />
 					</Grid>
 
@@ -44,7 +44,11 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 									<Typography variant="h4" gutterBottom>
 										{product.name}
 									</Typography>
-									<Typography variant="body2" gutterBottom>
+									<Typography
+										variant="body1"
+										gutterBottom
+										style={{ color: "#555" }}
+									>
 										{product.description}
 									</Typography>
 									<Grid
@@ -92,7 +96,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 												color="secondary"
 												className={classes.button}
 											>
-												ΣΤΟ ΚΑΛΑΘΙ
+												ΠΡΟΣΘΗΚΗ ΣΤΟ ΚΑΛΑΘΙ
 											</Button>
 										</Grid>
 									</Grid>
@@ -100,7 +104,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 										variant="h5"
 										gutterBottom
 										style={{
-											marginTop: "40px",
+											marginTop: "60px",
 										}}
 									>
 										ΣΧΕΤΙΚΑ ΠΡΟΪΟΝΤΑ
@@ -111,34 +115,45 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 												<div key={product.id}>
 													<Grid
 														item
-														xs={12}
-														sm={6}
-														md={12}
-														lg={12}
-														xl={12}
 													>
-														<Product
-															product={product}
-															onAddToCart={
-																onAddToCart
+														<Card
+															className={
+																classes.root
 															}
-														/>
-														{/* <Typography
-															variant="h6"
-															gutterBottom
 														>
-															{product.name}
-														</Typography>
-														<img
-															src={
-																product.media
-																	.source
-															}
-															alt=""
-															style={{
-																width: "100%",
-															}}
-														/> */}
+															<CardMedia
+																component={Link}
+																to={`/product/${product.sku}`}
+																className={
+																	classes.relatedMedia
+																}
+																image={
+																	product
+																		.media
+																		.source
+																}
+																title={
+																	product.name
+																}
+															/>
+															<CardContent>
+																<Typography
+																	variant="subtitle1"
+																	gutterBottom
+																>
+																	{
+																		product.name
+																	}
+																</Typography>
+																<Typography variant="h5">
+																	{
+																		product
+																			.price
+																			.formatted_with_symbol
+																	}
+																</Typography>
+															</CardContent>
+														</Card>
 													</Grid>
 												</div>
 											)

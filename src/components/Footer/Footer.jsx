@@ -16,7 +16,7 @@ const Footer = () => {
 						className="classes.topbar"
 						color="inherit"
 					>
-						© Copyright 2020
+						© Copyright 2021 - Cornershop
 					</Typography>
 				</Container>
 			</AppBar>

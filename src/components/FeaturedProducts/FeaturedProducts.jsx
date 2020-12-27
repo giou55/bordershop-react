@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Grid, Container, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import { commerce } from "../../lib/commerce";
 

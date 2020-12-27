@@ -31,11 +31,6 @@ const Product = ({ product, onAddToCart }) => {
 				<Typography variant="h5">
 					{product.price.formatted_with_symbol}
 				</Typography>
-				{/* <Typography
-					dangerouslySetInnerHTML={{ __html: product.description }}
-					variant="body2"
-					color="textSecondary"
-				/> */}
 				<CardActions disableSpacing className={classes.cardActions}>
 					<Button
 						aria-label="Add to Cart"
