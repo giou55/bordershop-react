@@ -25,7 +25,7 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 
 	useEffect(() => {
 		fetchProductsByCategory(category);
-	}, [products]);
+	}, [category]);
 
 	return (
 		products && (

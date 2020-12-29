@@ -45,19 +45,23 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 										{product.name}
 									</Typography>
 									<Typography
+										dangerouslySetInnerHTML={{
+											__html: product.description,
+										}}
 										variant="body1"
-										gutterBottom
-										style={{ color: "#555" }}
-									>
-										{product.description}
-									</Typography>
+										style={{ color: "#666" }}
+									/>
+									<div className={classes.toolbar} />
 									<Grid
 										container
-										spacing={6}
+										justify="space-around"
+										spacing={2}
 										className={classes.inner}
 									>
 										<Grid
 											item
+											container
+											justify="center"
 											xs={12}
 											sm={12}
 											md={9}
@@ -67,7 +71,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 											<img
 												src={product.media.source}
 												alt=""
-												style={{ width: "100%" }}
+												style={{ width: "70%" }}
 											/>
 										</Grid>
 										<Grid
@@ -79,7 +83,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 											xl={4}
 										>
 											<Typography
-												variant="h4"
+												variant="h5"
 												gutterBottom
 											>
 												{
@@ -100,13 +104,8 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 											</Button>
 										</Grid>
 									</Grid>
-									<Typography
-										variant="h5"
-										gutterBottom
-										style={{
-											marginTop: "60px",
-										}}
-									>
+									<div className={classes.toolbar} />
+									<Typography variant="h5" gutterBottom>
 										ΣΧΕΤΙΚΑ ΠΡΟΪΟΝΤΑ
 									</Typography>
 									<Grid container>
