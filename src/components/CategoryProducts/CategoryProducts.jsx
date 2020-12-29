@@ -48,6 +48,24 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 							xl={10}
 							className={classes.media}
 						>
+							{categories
+								.filter((cat) => cat.slug == category)
+								.map((cat) => (
+									<Grid
+										item
+										key={cat.id}
+										xs={12}
+										sm={12}
+										md={12}
+										lg={12}
+										xl={12}
+									>
+										<Typography variant="h4" gutterBottom>
+											{cat.name}
+										</Typography>
+									</Grid>
+								))}
+
 							{products.map((product) => (
 								<Grid
 									item
