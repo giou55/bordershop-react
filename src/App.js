@@ -21,9 +21,12 @@ const App = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 
 	const fetchProducts = async () => {
-		const { data } = await commerce.products.list({limit: "100"});
+		const { data } = await commerce.products.list({ limit: "100" });
 		setProducts(data);
-		console.log(data);
+		console.log(data.length);
+		data.map((product) => {
+			console.log(product.sku + " " + product.name);
+		});
 	};
 
 	const fetchCategories = async () => {

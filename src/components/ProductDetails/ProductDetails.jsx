@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 
 import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
+import RelatedProducts from "../RelatedProducts/RelatedProducts";
 import { useParams } from "react-router-dom";
 
 import useStyles from "./styles";
@@ -41,16 +42,9 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 							.filter((product) => product.sku == sku)
 							.map((product) => (
 								<div key={product.id}>
-									<Typography variant="h4" gutterBottom>
+									<Typography variant="h4">
 										{product.name}
 									</Typography>
-									<Typography
-										dangerouslySetInnerHTML={{
-											__html: product.description,
-										}}
-										variant="body1"
-										style={{ color: "#666" }}
-									/>
 									<div className={classes.toolbar} />
 									<Grid
 										container
@@ -73,6 +67,13 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 												alt=""
 												style={{ width: "70%" }}
 											/>
+											<Typography
+												dangerouslySetInnerHTML={{
+													__html: product.description,
+												}}
+												variant="body1"
+												style={{ color: "#666" }}
+											></Typography>
 										</Grid>
 										<Grid
 											item
@@ -105,58 +106,7 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 										</Grid>
 									</Grid>
 									<div className={classes.toolbar} />
-									<Typography variant="h5" gutterBottom>
-										ΣΧΕΤΙΚΑ ΠΡΟΪΟΝΤΑ
-									</Typography>
-									<Grid container>
-										{product.related_products.map(
-											(product) => (
-												<div key={product.id}>
-													<Grid item>
-														<Card
-															variant="outlined"
-															className={
-																classes.root
-															}
-														>
-															<CardMedia
-																component={Link}
-																to={`/product/${product.sku}`}
-																className={
-																	classes.relatedMedia
-																}
-																image={
-																	product
-																		.media
-																		.source
-																}
-																title={
-																	product.name
-																}
-															/>
-															<CardContent>
-																<Typography
-																	variant="subtitle1"
-																	gutterBottom
-																>
-																	{
-																		product.name
-																	}
-																</Typography>
-																<Typography variant="h5">
-																	{
-																		product
-																			.price
-																			.formatted_with_symbol
-																	}
-																</Typography>
-															</CardContent>
-														</Card>
-													</Grid>
-												</div>
-											)
-										)}
-									</Grid>
+									<RelatedProducts product={product} />
 								</div>
 							))}
 					</Grid>
