@@ -45,6 +45,22 @@ const ProductDetails = ({ categories, onAddToCart, products }) => {
 									<Typography variant="h4">
 										{product.name}
 									</Typography>
+									<Typography
+										variant="body2"
+										color="textSecondary"
+									>
+										{" "}
+										Κατηγορία:
+										{product.categories
+											.filter(
+												(cat) => cat.name !== "featured"
+											)
+											.map((cat) => (
+												<span key={product.id}>
+													{" " + cat.name}
+												</span>
+											))}
+									</Typography>
 									<div className={classes.toolbar} />
 									<Grid
 										container
