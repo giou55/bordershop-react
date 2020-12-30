@@ -24,8 +24,10 @@ const FeaturedProducts = ({ onAddToCart }) => {
 
 	return (
 		products && (
-			<div>
-				<Typography variant="h5" gutterBottom>FEATURED</Typography>
+			<div style={{ minHeight: "800px" }}>
+				<Typography variant="h5" gutterBottom>
+					FEATURED
+				</Typography>
 				<Grid container justify="center" spacing={4}>
 					{products.map((product) => (
 						<Grid

@@ -7,9 +7,9 @@ export default makeStyles((theme) => ({
 		backgroundColor: theme.palette.background.default,
 		padding: theme.spacing(0),
 		backgroundColor: "#fff",
-		marginBottom: "40px"
+		marginBottom: "40px",
 	},
 	media: {
 		height: "450px",
-	}
+	},
 }));

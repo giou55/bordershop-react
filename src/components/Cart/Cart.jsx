@@ -71,13 +71,15 @@ const Cart = ({
 	if (!cart.line_items) return "Loading...";
 
 	return (
-		<Container>
-			<div className={classes.toolbar} />
-			<Typography variant="h5" gutterBottom>
-				Το καλάθι σας
-			</Typography>
-			<div className={classes.toolbar} />
-			{!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+		<Container maxWidth="lg">
+			<main className={classes.content}>
+				<div className={classes.toolbar} />
+				<Typography variant="h5" gutterBottom>
+					Το καλάθι σας
+				</Typography>
+				<div className={classes.toolbar} />
+				{!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+			</main>
 		</Container>
 	);
 };

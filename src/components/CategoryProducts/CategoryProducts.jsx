@@ -33,7 +33,7 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 				<main className={classes.content}>
 					<div className={classes.toolbar} />
 					<Grid container justify="space-between" spacing={4}>
-						<Grid item xs={12} sm={3} md={2} lg={2} xl={2}>
+						<Grid item xs={12} sm={4} md={3} lg={2} xl={2}>
 							<CategoriesMenu categories={categories} />
 						</Grid>
 
@@ -42,8 +42,8 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 							container
 							spacing={3}
 							xs={12}
-							sm={9}
-							md={10}
+							sm={8}
+							md={9}
 							lg={10}
 							xl={10}
 							className={classes.media}
@@ -71,7 +71,7 @@ const CategoryProducts = ({ onAddToCart, categories }) => {
 									item
 									key={product.id}
 									xs={12}
-									sm={6}
+									sm={12}
 									md={6}
 									lg={4}
 									xl={4}
