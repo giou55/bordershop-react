@@ -26,7 +26,12 @@ const Topbar = ({ totalItems }) => {
 		<>
 			<AppBar position="static" className={classes.topbar}>
 				<Container maxWidth="lg">
-					<Grid container alignItems="center" spacing={1}>
+					<Grid
+						container
+						wrap="nowrap"
+						alignItems="center"
+						spacing={1}
+					>
 						<Grid item>
 							<img
 								src={bag}
@@ -52,14 +57,18 @@ const Topbar = ({ totalItems }) => {
 								ΑΥΘΗΜΕΡΟΝ
 							</Typography>
 						</Grid>
-						<Grid item>
+						<Grid item className={classes.phone}>
 							<img
 								src={phone}
 								alt="phone icon"
 								className={classes.icon}
 							/>
 						</Grid>
-						<Grid item style={{ marginRight: "20px" }}>
+						<Grid
+							item
+							className={classes.phone}
+							style={{ marginRight: "20px" }}
+						>
 							<Typography variant="body2">
 								(+30) 697 823 2833
 							</Typography>

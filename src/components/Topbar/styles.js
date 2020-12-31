@@ -1,12 +1,15 @@
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 0;
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
 	topbar: {
 		backgroundColor: "#0077ab",
 		color: "#fff",
 		padding: "6px",
+		[theme.breakpoints.down("sm")]: {
+			display: "none",
+		},
 	},
 	appbar: {
 		boxShadow: "none",
@@ -16,16 +19,11 @@ export default makeStyles(() => ({
 		height: "18px",
 		width: "auto",
 	},
-	title: {
-		flexGrow: 1,
-		alignItems: "center",
-		display: "flex",
-		textDecoration: "none",
+	phone: {
+		[theme.breakpoints.down("md")]: {
+			display: "none",
+		},
 	},
-	image: {
-		marginRight: "300px",
-	},
-	menuButton: {},
 	grow: {
 		flexGrow: 1,
 	},

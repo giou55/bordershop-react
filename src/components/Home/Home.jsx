@@ -4,6 +4,8 @@ import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
 
 import img from "../../assets/images/home.jpg";
+import imgMobile from "../../assets/images/home-mobile.jpg";
+
 import useStyles from "./styles";
 
 const Home = ({ categories, onAddToCart }) => {
@@ -17,7 +19,6 @@ const Home = ({ categories, onAddToCart }) => {
 					<Grid
 						item
 						xs={12}
-
 						sm={3}
 						md={2}
 						lg={2}
@@ -38,9 +39,12 @@ const Home = ({ categories, onAddToCart }) => {
 					>
 						<img
 							src={img}
-							style={{
-								width: "100%",
-							}}
+							className={classes.image}
+							alt=""
+						/>
+						<img
+							src={imgMobile}
+							className={classes.imageMobile}
 							alt=""
 						/>
 					</Grid>

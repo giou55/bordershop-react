@@ -10,6 +10,18 @@ export default makeStyles((theme) => ({
 		marginBottom: "40px",
 	},
 	media: {
-		height: "450px",
+		height:"auto"
+	},
+	image: {
+		width: "100%",
+		[theme.breakpoints.down("sm")]: {
+			display: "none",
+		},
+	},
+	imageMobile: {
+		width: "100%",
+		[theme.breakpoints.up("md")]: {
+			display: "none",
+		},
 	},
 }));
