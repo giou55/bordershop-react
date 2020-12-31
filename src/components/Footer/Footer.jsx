@@ -11,19 +11,20 @@ const Footer = () => {
 			<AppBar position="static" className={classes.bar1}>
 				<Container maxWidth="lg">
 					<Typography align="left" variant="h5" color="inherit">
-						Cool gadgets, gifts, elektronic, Toys and gaming
-						accessories
+						Cool gadgets, δώρα, dvds, βιβλία, κόμικς, παιχνίδια και
+						φιγούρες
 					</Typography>
 					<Typography align="left" variant="body2" color="inherit">
-						Cornershop.gr is an online store for anyone with a
-						passion for movies, music, comics and gadgets. Our range
-						includes the latest and most popular products. With a
-						range of over 5000 products and 50 categories, we can
-						offer you almost everything. We are up to date and offer
-						a very high quality. It is your order ranzendsnel home
-						thanks to our great shipping service. Orders before
-						17:00, the next day in the house. In addition, we do not
-						charge any shipping costs or other hidden charges.
+						Το Cornershop.gr είναι ένα online κατάστημα για
+						οποιονδήποτε με πάθος στον κινηματογράφο, στην μουσική,
+						στα κόμικς και στα gadgets. Our range includes the
+						latest and most popular products. With a range of over
+						5000 products and 50 categories, we can offer you almost
+						everything. We are up to date and offer a very high
+						quality. It is your order ranzendsnel home thanks to our
+						great shipping service. Orders before 17:00, the next
+						day in the house. In addition, we do not charge any
+						shipping costs or other hidden charges.
 					</Typography>
 				</Container>
 			</AppBar>
