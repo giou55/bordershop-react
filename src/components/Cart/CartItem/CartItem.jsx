@@ -5,7 +5,10 @@ import {
 	CardActions,
 	Typography,
 	Button,
+	IconButton,
 } from "@material-ui/core";
+
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import useStyles from "./styles";
 
@@ -47,14 +50,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 						+
 					</Button>
 				</div>
-				<Button
-					variant="contained"
-					type="button"
-					color="secondary"
-					onClick={() => onRemoveFromCart(item.id)}
-				>
-					ΑΦΑΙΡΕΣΗ
-				</Button>
+				<IconButton onClick={() => onRemoveFromCart(item.id)}>
+					<DeleteIcon />
+				</IconButton>
 			</CardActions>
 		</Card>
 	);

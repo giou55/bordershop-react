@@ -11,6 +11,8 @@ import {
 import { ShoppingCart } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 
+import SearchBar from "../SearchBar/SearchBar";
+
 import "../../assets/css/logo.css";
 import bag from "../../assets/images/shopping-bag.png";
 import delivery from "../../assets/images/delivery.png";
@@ -83,17 +85,24 @@ const Topbar = ({ totalItems }) => {
 				color="inherit"
 			>
 				<Container maxWidth="lg">
-					<Toolbar disableGutters={true} style={{ height: "80px" }}>
+					<Toolbar
+						disableGutters={true}
+						style={{
+							height: "80px",
+							display: "flex",
+							justifyContent: "space-between",
+						}}
+					>
 						<Box
 							component={Link}
 							to="/"
 							style={{ textDecoration: "none" }}
 							className="logo"
 						>
-							corner<span className="logo-span">shop</span>
+							CORNERSHOP
 						</Box>
 
-						<div className={classes.grow} />
+						{location.pathname !== "/cart" && <SearchBar />}
 
 						{location.pathname !== "/cart" && (
 							<div className={classes.button}>

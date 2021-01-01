@@ -18,14 +18,14 @@ const Cart = ({
 
 	const FilledCart = () => (
 		<>
-			<Grid container spacing={3}>
+			<Grid container spacing={5}>
 				{cart.line_items.map((item) => (
 					<Grid
 						item
 						xs={12}
 						sm={6}
 						md={4}
-						lg={4}
+						lg={3}
 						xl={3}
 						key={item.id}
 					>
@@ -46,8 +46,7 @@ const Cart = ({
 						className={classes.emptyButton}
 						size="large"
 						type="button"
-						variant="contained"
-						color="secondary"
+						variant="outlined"
 						onClick={handleEmptyCart}
 					>
 						ΑΔΕΙΑΣΜΑ ΚΑΛΑΘΙΟΥ

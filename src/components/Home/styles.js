@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
 		marginBottom: "40px",
 	},
 	media: {
-		height:"auto"
+		height: "auto",
 	},
 	image: {
 		width: "100%",
@@ -23,5 +23,11 @@ export default makeStyles((theme) => ({
 		[theme.breakpoints.up("md")]: {
 			display: "none",
 		},
+	},
+	about: {
+		boxShadow: "none",
+		backgroundColor: "#fff",
+		color: "#333",
+		padding: "15px",
 	},
 }));

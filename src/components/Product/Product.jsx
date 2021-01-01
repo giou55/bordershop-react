@@ -36,7 +36,7 @@ const Product = ({ product, onAddToCart }) => {
 						aria-label="Add to Cart"
 						onClick={() => onAddToCart(product.id, 1)}
 						variant="contained"
-						color="secondary"
+						color="primary"
 						className={classes.button}
 						startIcon={<AddShoppingCartIcon />}
 					>
