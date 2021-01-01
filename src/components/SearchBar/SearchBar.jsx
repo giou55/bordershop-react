@@ -1,8 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
+import { InputBase, IconButton, Paper } from "@material-ui/core";
+
 import SearchIcon from "@material-ui/icons/Search";
+
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,10 +24,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
 	const classes = useStyles();
+	const { register, handleSubmit } = useForm();
+
+	const history = useHistory();
 
 	return (
-		<Paper component="form" variant="outlined" className={classes.root}>
+		<Paper
+			component="form"
+			variant="outlined"
+			className={classes.root}
+			onSubmit={handleSubmit((data) => {
+				history.push("/search/" + data.textInput);
+				console.log(data.textInput);
+			})}
+		>
 			<InputBase
+				name="textInput"
+				inputRef={register}
 				className={classes.input}
 				placeholder="Τι είναι αυτό που ψάχνετε;"
 				inputProps={{ "aria-label": "Τι είναι αυτό που ψάχνετε;" }}

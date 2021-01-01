@@ -1,11 +1,9 @@
 import {
 	Grid,
-	Container,
 	Typography,
 	Card,
 	CardMedia,
 	CardContent,
-	Button,
 } from "@material-ui/core";
 
 import { Link } from "react-router-dom";

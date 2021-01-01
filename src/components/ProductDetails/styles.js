@@ -11,4 +11,3 @@ export default makeStyles((theme) => ({
 		width: 250,
 	},
 }));
-

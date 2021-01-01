@@ -7,7 +7,7 @@ import {
 	Grid,
 	Typography,
 } from "@material-ui/core";
-import { useForm, FormProvider, Controller } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 import { commerce } from "../../lib/commerce";
@@ -20,7 +20,6 @@ const AddressForm = ({ cart, checkoutToken, next }) => {
 	const [shippingOption, setShippingOption] = useState("");
 
 	const methods = useForm();
-	const { control } = methods;
 
 	const fetchShippingCountries = async (checkoutTokenId) => {
 		const {

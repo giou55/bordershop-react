@@ -124,6 +124,12 @@ const App = () => {
 							error={errorMessage}
 						/>
 					</Route>
+					<Route path="/search/:text">
+						<Products
+							products={products}
+							onAddToCart={handleAddToCart}
+						/>
+					</Route>
 					<Route path="/:category">
 						<CategoryProducts
 							categories={categories}
