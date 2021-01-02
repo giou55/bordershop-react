@@ -96,13 +96,20 @@ const Topbar = ({ totalItems }) => {
 						<Box
 							component={Link}
 							to="/"
-							style={{ textDecoration: "none" }}
+							style={{
+								textDecoration: "none",
+								marginRight: "20px",
+							}}
 							className="logo"
 						>
 							CORNERSHOP
 						</Box>
 
-						{location.pathname !== "/cart" && <SearchBar />}
+						{location.pathname !== "/cart" && (
+							<div className={classes.desktopSearchBar}>
+								<SearchBar />
+							</div>
+						)}
 
 						{location.pathname !== "/cart" && (
 							<div className={classes.button}>
@@ -121,6 +128,19 @@ const Topbar = ({ totalItems }) => {
 								</IconButton>
 							</div>
 						)}
+					</Toolbar>
+				</Container>
+
+				<Container maxWidth="lg" className={classes.mobileSearchBar}>
+					<Toolbar
+						disableGutters={true}
+						style={{
+							height: "80px",
+							display: "flex",
+							justifyContent: "space-between",
+						}}
+					>
+						{location.pathname !== "/cart" && <SearchBar />}
 					</Toolbar>
 				</Container>
 			</AppBar>

@@ -35,7 +35,6 @@ export default function SearchBar() {
 			className={classes.root}
 			onSubmit={handleSubmit((data) => {
 				history.push("/search/" + data.textInput);
-				console.log(data.textInput);
 			})}
 		>
 			<InputBase

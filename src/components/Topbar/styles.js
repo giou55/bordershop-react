@@ -28,6 +28,16 @@ export default makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
 	},
+	mobileSearchBar: {
+		[theme.breakpoints.up("sm")]: {
+			display: "none",
+		},
+	},
+	desktopSearchBar: {
+		[theme.breakpoints.down("xs")]: {
+			display: "none",
+		},
+	},
 }));
 
 //export default makeStyles((theme) => ({

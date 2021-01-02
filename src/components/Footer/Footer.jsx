@@ -1,5 +1,12 @@
 import { AppBar, Typography, Container, Grid } from "@material-ui/core";
 
+import facebook from "../../assets/images/facebook-icon.png";
+import instagram from "../../assets/images/instagram-icon.png";
+import twitter from "../../assets/images/twitter-icon.png";
+import youtube from "../../assets/images/youtube-icon.png";
+import visa from "../../assets/images/visa.png";
+import mastercard from "../../assets/images/mastercard.png";
+
 import useStyles from "./styles";
 
 const Footer = () => {
@@ -10,7 +17,12 @@ const Footer = () => {
 			<div className={classes.toolbar} />
 			<AppBar position="static" className={classes.bar1}>
 				<Container maxWidth="lg">
-					<Grid container justify="space-around" spacing={6}>
+					<Grid
+						container
+						justify="space-around"
+						wrap="wrap"
+						spacing={6}
+					>
 						<Grid item>
 							<Typography
 								align="left"
@@ -20,30 +32,26 @@ const Footer = () => {
 							>
 								ΤΡΟΠΟΙ ΠΛΗΡΩΜΗΣ
 							</Typography>
-							<Typography
-								align="left"
-								variant="body2"
-								color="inherit"
+							<Grid
+								item
+								container
+								spacing={2}
 							>
-								Visa, Mastercard
-							</Typography>
-						</Grid>
-						<Grid item>
-							<Typography
-								align="left"
-								variant="h6"
-								color="inherit"
-								gutterBottom
-							>
-								SOCIAL MEDIA
-							</Typography>
-							<Typography
-								align="left"
-								variant="body2"
-								color="inherit"
-							>
-								Facebook, YouTube
-							</Typography>
+								<Grid item>
+									<img
+										src={visa}
+										alt="visa icon"
+										className={classes.cardIcon}
+									/>
+								</Grid>
+								<Grid item>
+									<img
+										src={mastercard}
+										alt="mastercard icon"
+										className={classes.cardIcon}
+									/>
+								</Grid>
+							</Grid>
 						</Grid>
 						<Grid item>
 							<Typography
@@ -59,9 +67,55 @@ const Footer = () => {
 								variant="body2"
 								color="inherit"
 							>
-								Cornershop.gr Cool gadgets, books, dvds and toys
+								Cornershop.gr<br></br> Cool gadgets, βιβλία,
+								dvds, κόμικς και παιχνίδια<br></br>
 								(+30) 697 823 2833
 							</Typography>
+						</Grid>
+						<Grid item>
+							<Typography
+								align="left"
+								variant="h6"
+								color="inherit"
+								gutterBottom
+							>
+								SOCIAL MEDIA
+							</Typography>
+							<Grid
+								item
+								container
+								justify="space-around"
+								spacing={2}
+							>
+								<Grid item>
+									<img
+										src={facebook}
+										alt="facebook icon"
+										className={classes.icon}
+									/>
+								</Grid>
+								<Grid item>
+									<img
+										src={instagram}
+										alt="instagram icon"
+										className={classes.icon}
+									/>
+								</Grid>
+								<Grid item>
+									<img
+										src={twitter}
+										alt="twitter icon"
+										className={classes.icon}
+									/>
+								</Grid>
+								<Grid item>
+									<img
+										src={youtube}
+										alt="youtube icon"
+										className={classes.icon}
+									/>
+								</Grid>
+							</Grid>
 						</Grid>
 					</Grid>
 				</Container>

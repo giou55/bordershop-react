@@ -23,21 +23,33 @@ const Products = ({ products, onAddToCart }) => {
 				</Typography>
 
 				{resultsNumber > 1 && (
-					<Typography variant="body2">
+					<Typography variant="body1">
 						Βρέθηκαν {resultsNumber} προϊόντα
 					</Typography>
 				)}
 
 				{resultsNumber < 1 && (
-					<Typography variant="body2">
-						Δεν βρέθηκαν προϊόντα
-					</Typography>
+					<Grid
+						container
+						justify="center"
+						alignItems="center"
+						style={{
+							backgroundColor: "#eee",
+							margin: "30px auto",
+							width: "70%",
+							height: "500px",
+						}}
+					>
+						<Grid item>
+							<Typography variant="body2" align="center">
+								Δεν βρέθηκαν προϊόντα...
+							</Typography>
+						</Grid>
+					</Grid>
 				)}
 
 				{resultsNumber == 1 && (
-					<Typography variant="body2">
-						Βρέθηκε {resultsNumber} προϊόν
-					</Typography>
+					<Typography variant="body2">Βρέθηκε 1 προϊόν</Typography>
 				)}
 
 				<div className={classes.toolbar} />
