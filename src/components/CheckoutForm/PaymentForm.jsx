@@ -16,7 +16,7 @@ const PaymentForm = ({
 	backStep,
 	shippingData,
 	onCaptureCheckout,
-	timeout
+	timeout,
 }) => {
 	const handleSubmit = async (event, elements, stripe) => {
 		event.preventDefault();
@@ -71,6 +71,18 @@ const PaymentForm = ({
 			<Divider />
 			<Typography variant="h6" gutterBottom style={{ margin: "20px 0" }}>
 				Τρόποι πληρωμής
+			</Typography>
+			<Typography
+				variant="body1"
+				gutterBottom
+				style={{
+					color: "red",
+					backgroundColor: "rgb(251 230 230)",
+					padding: "4px 8px",
+					marginBottom: "20px",
+				}}
+			>
+				Το κατάστημα είναι υπό δοκιμή και δεν γίνονται αγορές ακόμα.
 			</Typography>
 			<Elements stripe={stripePromise}>
 				<ElementsConsumer>

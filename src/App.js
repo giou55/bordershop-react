@@ -85,7 +85,7 @@ const App = () => {
 	const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
 	return (
-		<Router>
+		<Router basename="/cornershop/">
 			<div>
 				<Topbar totalItems={cart.total_items} />
 				<Switch>
