@@ -23,13 +23,13 @@ const RelatedProducts = ({ product }) => {
 					<Grid
 						item
 						key={prod.id}
-						xs={12}
+						xs={6}
 						sm={6}
 						md={4}
 						lg={4}
 						xl={3}
 					>
-						<Card variant="outlined" className={classes.root}>
+						<Card variant="outlined">
 							<CardMedia
 								component={Link}
 								to={`/product/${prod.sku}`}

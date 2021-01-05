@@ -64,7 +64,7 @@ const Footer = () => {
 								color="inherit"
 							>
 								Bordershop.gr<br></br> Cool gadgets, βιβλία,
-								dvds, κόμικς και παιχνίδια<br></br>
+								dvds, κόμικς, παιχνίδια, κ.ά.<br></br>
 								(+30) 697 823 2833
 							</Typography>
 						</Grid>
