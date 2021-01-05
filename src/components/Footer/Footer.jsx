@@ -32,11 +32,7 @@ const Footer = () => {
 							>
 								ΤΡΟΠΟΙ ΠΛΗΡΩΜΗΣ
 							</Typography>
-							<Grid
-								item
-								container
-								spacing={2}
-							>
+							<Grid item container spacing={2}>
 								<Grid item>
 									<img
 										src={visa}
@@ -67,7 +63,7 @@ const Footer = () => {
 								variant="body2"
 								color="inherit"
 							>
-								Cornershop.gr<br></br> Cool gadgets, βιβλία,
+								Bordershop.gr<br></br> Cool gadgets, βιβλία,
 								dvds, κόμικς και παιχνίδια<br></br>
 								(+30) 697 823 2833
 							</Typography>
@@ -123,7 +119,7 @@ const Footer = () => {
 			<AppBar position="static" className={classes.bar2}>
 				<Container maxWidth="lg">
 					<Typography align="center" variant="body2" color="inherit">
-						© Copyright 2021 - Cornershop
+						© Copyright 2021 - Bordershop
 					</Typography>
 				</Container>
 			</AppBar>

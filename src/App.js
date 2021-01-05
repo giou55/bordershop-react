@@ -10,7 +10,7 @@ import {
 	CategoryProducts,
 	Footer,
 } from "./components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const App = () => {
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,10 +23,10 @@ const App = () => {
 	const fetchProducts = async () => {
 		const { data } = await commerce.products.list({ limit: "100" });
 		setProducts(data);
-		console.log(data.length);
-		data.map((product) => {
-			console.log(product.sku + " " + product.name);
-		});
+		// console.log(data.length);
+		// data.map((product) => {
+		// 	console.log(product.sku + " " + product.name);
+		// });
 	};
 
 	const fetchCategories = async () => {
@@ -85,7 +85,7 @@ const App = () => {
 	const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
 	return (
-		<Router basename="/cornershop/">
+		<BrowserRouter>
 			<div>
 				<Topbar totalItems={cart.total_items} />
 				<Switch>
@@ -139,7 +139,7 @@ const App = () => {
 				</Switch>
 				<Footer />
 			</div>
-		</Router>
+		</BrowserRouter>
 	);
 };
 

@@ -61,7 +61,7 @@ const Home = ({ categories, onAddToCart }) => {
 						φιγούρες
 					</Typography>
 					<Typography align="left" variant="body2" color="inherit">
-						Το Cornershop.gr είναι ένα online κατάστημα για
+						Το Bordershop.gr είναι ένα online κατάστημα για
 						οποιονδήποτε με πάθος στον κινηματογράφο, στην μουσική,
 						στα κόμικς και στα gadgets. Υπάρχει μεγάλη ποικιλία από
 						προϊόντα, όλα σε άριστη κατάσταση. Οι παραγγελίες που

@@ -102,32 +102,33 @@ const Topbar = ({ totalItems }) => {
 							}}
 							className="logo"
 						>
-							CORNERSHOP
+							BORDERSHOP
 						</Box>
 
-						{location.pathname !== "/cart" && (
-							<div className={classes.desktopSearchBar}>
-								<SearchBar />
-							</div>
-						)}
+						<div className={classes.desktopSearchBar}>
+							<SearchBar />
+						</div>
 
-						{location.pathname !== "/cart" && (
-							<div className={classes.button}>
-								<IconButton
-									component={Link}
-									to="/cart"
-									aria-label="Show cart items"
-									color="inherit"
+						<div className={classes.button}>
+							<IconButton
+								component={Link}
+								to="/cart"
+								aria-label="Show cart items"
+								color="inherit"
+							>
+								<Badge
+									badgeContent={totalItems}
+									color="secondary"
 								>
-									<Badge
-										badgeContent={totalItems}
-										color="secondary"
-									>
-										<ShoppingCart />
-									</Badge>
-								</IconButton>
-							</div>
-						)}
+									<ShoppingCart
+										color="primary"
+										style={{
+											fontSize: "26px"
+										}}
+									/>
+								</Badge>
+							</IconButton>
+						</div>
 					</Toolbar>
 				</Container>
 
@@ -140,7 +141,7 @@ const Topbar = ({ totalItems }) => {
 							justifyContent: "space-between",
 						}}
 					>
-						{location.pathname !== "/cart" && <SearchBar />}
+						<SearchBar />
 					</Toolbar>
 				</Container>
 			</AppBar>
