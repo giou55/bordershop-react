@@ -19,7 +19,7 @@ const CategoriesMenu = ({ categories }) => {
 					.map((category) => (
 						<ListItem
 							component={Link}
-							to={`/${category.slug}`}
+							to={`/categories/${category.slug}`}
 							key={category.name}
 							style={{
 								padding: "0 10px 0 8px",

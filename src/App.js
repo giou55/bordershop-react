@@ -10,7 +10,10 @@ import {
 	CategoryProducts,
 	Footer,
 } from "./components";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import NotFoundPage from "./components/NotFoundPage.jsx";
+
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 const App = () => {
 	const [mobileOpen, setMobileOpen] = useState(false);
@@ -101,7 +104,7 @@ const App = () => {
 							onAddToCart={handleAddToCart}
 						/>
 					</Route>
-					<Route exact path="/product/:sku">
+					<Route exact path="/products/:sku">
 						<ProductDetails
 							products={products}
 							categories={categories}
@@ -124,18 +127,21 @@ const App = () => {
 							error={errorMessage}
 						/>
 					</Route>
-					<Route path="/search/:text">
+					<Route exact path="/search/:text">
 						<Products
 							products={products}
 							onAddToCart={handleAddToCart}
 						/>
 					</Route>
-					<Route path="/:category">
+					<Route exact path="/categories/:category">
 						<CategoryProducts
 							categories={categories}
 							onAddToCart={handleAddToCart}
 						/>
 					</Route>
+
+					<Redirect to="/" />
+					{/* <Route component={NotFoundPage} /> */}
 				</Switch>
 				<Footer />
 			</div>

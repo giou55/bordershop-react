@@ -1,9 +1,4 @@
-import {
-	Grid,
-	Container,
-	Typography,
-	Button,
-} from "@material-ui/core";
+import { Grid, Container, Typography, Button } from "@material-ui/core";
 
 import CategoriesMenu from "../CategoriesMenu/CategoriesMenu";
 import RelatedProducts from "../RelatedProducts/RelatedProducts";

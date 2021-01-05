@@ -20,19 +20,11 @@ const RelatedProducts = ({ product }) => {
 			</Typography>
 			<Grid container spacing={4}>
 				{product.related_products.map((prod) => (
-					<Grid
-						item
-						key={prod.id}
-						xs={6}
-						sm={6}
-						md={4}
-						lg={4}
-						xl={3}
-					>
+					<Grid item key={prod.id} xs={6} sm={6} md={4} lg={4} xl={3}>
 						<Card variant="outlined">
 							<CardMedia
 								component={Link}
-								to={`/product/${prod.sku}`}
+								to={`/products/${prod.sku}`}
 								className={classes.media}
 								image={prod.media.source}
 								title={prod.name}
