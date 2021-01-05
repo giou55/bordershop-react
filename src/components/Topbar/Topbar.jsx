@@ -85,13 +85,11 @@ const Topbar = ({ totalItems }) => {
 				color="inherit"
 			>
 				<Container maxWidth="lg">
-					<Toolbar
-						disableGutters={true}
-						style={{
-							height: "80px",
-							display: "flex",
-							justifyContent: "space-between",
-						}}
+					<Grid className={classes.appbarContent}
+						container
+						direction="row"
+						justify="space-between"
+						alignItems="center"
 					>
 						<Box
 							component={Link}
@@ -105,7 +103,7 @@ const Topbar = ({ totalItems }) => {
 							BORDERSHOP
 						</Box>
 
-						<div className={classes.desktopSearchBar}>
+						<div className={classes.searchBar}>
 							<SearchBar />
 						</div>
 
@@ -123,26 +121,13 @@ const Topbar = ({ totalItems }) => {
 									<ShoppingCart
 										color="primary"
 										style={{
-											fontSize: "26px"
+											fontSize: "26px",
 										}}
 									/>
 								</Badge>
 							</IconButton>
 						</div>
-					</Toolbar>
-				</Container>
-
-				<Container maxWidth="lg" className={classes.mobileSearchBar}>
-					<Toolbar
-						disableGutters={true}
-						style={{
-							height: "80px",
-							display: "flex",
-							justifyContent: "space-between",
-						}}
-					>
-						<SearchBar />
-					</Toolbar>
+					</Grid>
 				</Container>
 			</AppBar>
 		</>

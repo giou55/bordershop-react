@@ -35,9 +35,9 @@ const Products = ({ products, onAddToCart }) => {
 						alignItems="center"
 						style={{
 							backgroundColor: "#eee",
-							margin: "30px auto",
+							margin: "60px auto",
 							width: "70%",
-							height: "500px",
+							padding: "100px 50px",
 						}}
 					>
 						<Grid item>

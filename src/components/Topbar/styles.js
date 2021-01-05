@@ -4,7 +4,6 @@ const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
 	topbar: {
-		backgroundColor: theme.palette.secondary,
 		color: "#fff",
 		padding: "6px",
 		[theme.breakpoints.down("sm")]: {
@@ -12,9 +11,15 @@ export default makeStyles((theme) => ({
 		},
 	},
 	appbar: {
-		backgroundColor: theme.palette.secondary,
 		boxShadow: "none",
 		borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+		padding: "6px",
+	},
+	appbarContent: {
+		flexWrap: "nowrap",
+		[theme.breakpoints.down("xs")]: {
+			flexWrap: "wrap",
+		},
 	},
 	icon: {
 		height: "18px",
@@ -28,15 +33,17 @@ export default makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
 	},
-	mobileSearchBar: {
-		[theme.breakpoints.up("sm")]: {
-			display: "none",
+	searchBar: {
+		margin: "0 auto",
+		flexBasis: "400px",
+		margin: "10px 20px",
+		[theme.breakpoints.down("xs")]: {
+			order: "3",
+			margin: "10px 0 10px 0",
 		},
 	},
-	desktopSearchBar: {
-		[theme.breakpoints.down("xs")]: {
-			display: "none",
-		},
+	button: {
+		marginLeft: "20px",
 	},
 }));
 

@@ -5,8 +5,20 @@
 	color: #333;
 	text-shadow: 3px 3px 0 #ddd, -1px -1px 0 #ddd, 1px -1px 0 #ddd,
 		-1px 1px 0 #ddd, 1px 1px 0 #ddd;
-	font-size: 40px;
+	font-size: 32px;
 	font-weight: bold;
 	letter-spacing: 1px;
+}
+
+@media screen and (min-width: 400px) {
+  .logo {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .logo {
+    font-size: 40px;
+  }
 }
 

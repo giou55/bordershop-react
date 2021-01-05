@@ -18,8 +18,8 @@ const Footer = () => {
 			<AppBar position="static" className={classes.bar1}>
 				<Container maxWidth="lg">
 					<Grid
+						className={classes.bar1Content}
 						container
-						justify="space-around"
 						wrap="wrap"
 						spacing={6}
 					>

@@ -13,7 +13,13 @@ export default makeStyles((theme) => ({
 		backgroundColor: "#f3f4f6",
 		borderTop: "1px solid #ddd",
 		color: "#333",
-		padding: "15px",
+		padding: "20px",
+	},
+	bar1Content: {
+		justifyContent: "space-around",
+		[theme.breakpoints.down("sm")]: {
+			justifyContent: "flex-start",
+		},
 	},
 	bar2: {
 		boxShadow: "none",
